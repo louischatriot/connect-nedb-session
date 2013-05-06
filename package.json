@@ -1,0 +1,39 @@
+{
+  "name": "connect-nedb-session",
+  "version": "0.0.1",
+  "author": {
+    "name": "tldr.io",
+    "email": "hello@tldr.io"
+  },
+  "contributors": [
+    "Louis Chatriot"
+  ],
+  "description": "Nedb-backed session store for Connect/Express session middleware",
+  "keywords": [
+    "session",
+    "store",
+    "nedb",
+    "connect",
+    "express"
+  ],
+  "homepage": "https://github.com/louischatriot/connect-nedb-session",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:louischatriot/connect-nedb-session.git"
+  },
+  "dependencies": {
+    "nedb": "0.0.5"
+  },
+  "devDependencies": {
+    "chai": "1.0.x",
+    "mocha": "1.4.x",
+    "request": "2.9.x",
+    "sinon": "1.3.x",
+    "connect": "*"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "main": "index",
+  "licence": "MIT"
+}
