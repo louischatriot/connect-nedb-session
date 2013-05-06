@@ -26,11 +26,14 @@ module.exports = function (connect) {
   /**
    * Constructor
    * @param {String} options.filename File where session data will be persisted
+   * @param {Function} cp Optional callback (useful when testing)
    */
-  function NedbStore(options) {
+  function NedbStore(options, cb) {
+    var callback = cb || function () {};
+
     this.filename = options.filename;
     this.db = new Nedb(options.filename);
-    this.db.loadDatabase();   // Asynchronous but very quick
+    this.db.loadDatabase(callback);
   }
 
   // Inherit from Connect's session store
@@ -54,7 +57,7 @@ module.exports = function (connect) {
    * Set session data
    */
   NedbStore.prototype.set = function (sid, data, callback) {
-    this.db.update({ sid: sid }, { sid: sid, data: data }, { multi: false, upsert: true }, function (err, ne, up) {
+    this.db.update({ sid: sid }, { sid: sid, data: data }, { multi: false, upsert: true }, function (err) {
       return callback(err);
     });
   };
