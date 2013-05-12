@@ -1,6 +1,6 @@
 {
   "name": "connect-nedb-session",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "tldr.io",
     "email": "hello@tldr.io"
@@ -22,7 +22,7 @@
     "url": "git@github.com:louischatriot/connect-nedb-session.git"
   },
   "dependencies": {
-    "nedb": "0.0.5"
+    "nedb": "0.0.6"
   },
   "devDependencies": {
     "chai": "1.0.x",
