@@ -6,7 +6,7 @@ NeDB-backed session store for the Connect/Express session middleware.
 ## Install and test
 ```javascript
 npm install connect-nedb-session
-make test
+npm test
 ```
 
 ## How to use
