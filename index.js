@@ -3,26 +3,35 @@
  *
  * Usage:
  * var connect = require('connect')
- *   , NedbStore = require('connect-nedb-session')(connect);
+ *   , session = connect.session
+ *   , NedbStore = require('connect-nedb-session')(session);
  *
  * Or:
  * var express = require('express')
- *   , NedbStore = require('connect-nedb-session')(express);
+ *   , session = express.session
+ *   , NedbStore = require('connect-nedb-session')(session);
+ *
+ * Or (express 4.x):
+ * var express = require('express')
+ *   , session = require('express-session')
+ *   , NedbStore = require('connect-nedb-session')(session);
  *
  * Then:
- * expressServer.use(express.session({ secret: 'yoursecret'
- *                                   , key: 'yoursessionkey'
- *                                   , cookie: { path: '/'
- *                                             , httpOnly: true
- *                                             , maxAge: 365 * 24 * 3600 * 1000   // One year for example
- *                                             }
- *                                   , store: new NedbStore({ filename: 'path_to_nedb_persistence_file' })
- *                                   }));
+ * server.use(session({
+ *     secret : 'yoursecret',
+ *     key : 'yoursessionkey',
+ *     cookie : {
+ *         path : '/',
+ *         httpOnly : true,
+ *         maxAge : 365 * 24 * 3600 * 1000   // One year for example
+ *     },
+ *     store : new NedbStore({ filename : 'path_to_nedb_persistence_file' })
+ * }));
  */
 var Nedb = require('nedb');
 
 
-module.exports = function (connect) {
+module.exports = function (session) {
   /**
    * Constructor
    * @param {String} options.filename File where session data will be persisted
@@ -37,7 +46,7 @@ module.exports = function (connect) {
   }
 
   // Inherit from Connect's session store
-  NedbStore.prototype.__proto__ = connect.session.Store.prototype;
+  NedbStore.prototype.__proto__ = session.Store.prototype;
 
 
   /**
