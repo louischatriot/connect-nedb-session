@@ -32,7 +32,7 @@
     "connect": "*"
   },
   "scripts": {
-    "test": "make test"
+    "test": "mocha --timeout 2000 --reporter spec"
   },
   "main": "index",
   "licence": "MIT"

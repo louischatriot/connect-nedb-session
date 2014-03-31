@@ -1,5 +1,5 @@
 var connect = require('connect')
-  , NedbStore = require('../index')(connect)
+  , NedbStore = require('../index')(connect.session)
   , testDb = 'workspace/test.db'
   , should = require('chai').should()
   , assert = require('chai').assert
