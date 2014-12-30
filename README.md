@@ -3,7 +3,7 @@ connect-nedb-session
 
 **IMPORTANT: this library is not maintained anymore, please don't submit anymore pull requests except for bugfixes**
 
-NeDB-backed session store for the Connect/Express session middleware.
+NeDB-backed session store for the Connect/Express session middleware. Only tested with Express 3, not 4
 
 ## Install and test
 ```javascript
